@@ -1,14 +1,21 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
+
+import javax.sound.sampled.Line;
 
 class Main{
  
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException, IOException {
     int state = 0;
-    String charset = "ISO-8859-1";
+    String charset = "CP850";
     Scanner sc = new Scanner(System.in, charset);
     String input = sc.next();
-    System.out.println(input);
-    
+       
     for (int i = 0; i < input.length(); i++) {
         //ház - ad / am / á / unk / atok / aik - ban
         switch(state){
@@ -27,7 +34,6 @@ class Main{
                 default: state = 0; break;
             } break;
             case 3: switch (input.charAt(i)){ //elfogadó allapot
-                case 'z': state = 3; break;
                 case 'b': state = 5; break; //itt így megy az "empty-vel" tovább?
                 case 'a': state = 8; break;
                 case 'u': state = 12; break;
