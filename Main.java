@@ -42,7 +42,7 @@ class Main{
                 default: state = 3; break; //ha bármi mást kap, akkor marad itt
             } break;
             case 4: switch (input.charAt(i)){ 
-                case 'b': state = 5; break;//itt így megy az "empty-vel" tovább?
+                case 'b': state = 5; break;
                 case 'h': state = 1; break;
                 default: state = 0; break;
             } break;
